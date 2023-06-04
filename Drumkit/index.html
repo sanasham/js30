@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="keys">
+      <div class="key" key-data="65"><kbd>A</kbd><span>boom</span></div>
+      <div class="key" key-data="83"><kbd>S</kbd><span>clap</span></div>
+      <div class="key" key-data="68"><kbd>D</kbd><span>hithat</span></div>
+      <div class="key" key-data="70"><kbd>F</kbd><span>kick</span></div>
+      <div class="key" key-data="71"><kbd>G</kbd><span>ride</span></div>
+      <div class="key" key-data="72"><kbd>H</kbd><span>snare</span></div>
+      <div class="key" key-data="74"><kbd>J</kbd><span>tink</span></div>
+      <div class="key" key-data="75"><kbd>K</kbd> <span>tom</span></div>
+    </div>
+    <audio key-data="65" src="./Sounds/boom.wav"></audio>
+    <audio key-data="83" src="./Sounds/clap.wav"></audio>
+    <audio key-data="68" src="./Sounds/hihat.wav"></audio>
+    <audio key-data="70" src="./Sounds/kick.wav"></audio>
+    <audio key-data="71" src="./Sounds/ride.wav"></audio>
+    <audio key-data="72" src="./Sounds/snare.wav"></audio>
+    <audio key-data="74" src="./Sounds/tink.wav"></audio>
+    <audio key-data="75" src="./Sounds/tom.wav"></audio>
+    <script>
+      window.addEventListener('keydown', function (e) {
+        const audio = document.querySelector(`audio[key-data="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[key-data="${e.keyCode}"]`);
+        if (audio) {
+          audio.play();
+          audio.currentTime = 0;
+          // key.classList.add('playing');
+        }
+      });
+    </script>
+  </body>
+</html>
